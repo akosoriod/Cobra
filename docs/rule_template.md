@@ -1,28 +1,28 @@
-# Rule Template（规则模板）
+# Rule Template
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"? >
 
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="硬编码Token/Key"/>
+    <name value="HardcodedToken/Key"/>
     <language value="*"/>
-    <match mode="regex-only-match"><![CDATA[(?![\d]{32})(?![a-fA-F]{32})([a-f\d]{32}|[A-F\d]{32})]]></match>
+    <match mode="regex-only-match"><! [CDATA[(?! [\d]{32})(?! [a-fA-F]{32})([a-f\d]{32}|[A-F\d]{32})]]></match>
     <level value="2"/>
-    <test>
-        <case assert="true" remark="sha1"><![CDATA["41a6bc4d9a033e1627f448f0b9593f9316d071c1"]]></case>
-        <case assert="true" remark="md5 lower"><![CDATA["d042343e49e40f16cb61bd203b0ce756"]]></case>
-        <case assert="true" remark="md5 upper"><![CDATA[C787AFE9D9E86A6A6C78ACE99CA778EE]]></case>
-        <case assert="false"><![CDATA[please like and subscribe to my]]></case>
-        <case assert="false"><![CDATA[A32efC32c79823a2123AA8cbDDd3231c]]></case>
-        <case assert="false"><![CDATA[ffffffffffffffffffffffffffffffff]]></case>
-        <case assert="false"><![CDATA[01110101001110011101011010101001]]></case>
-        <case assert="false"><![CDATA[00000000000000000000000000000000]]></case>
+    <test
+        <case assert="true" remark="sha1"><! [CDATA["41a6bc4d9a033e1627f448f0b9593f9316d071c1"]></case
+        <case assert="true" remark="md5 lower"><! [CDATA["d042343e49e40f16cb61bd203b0ce756"]]></case>
+        <case assert="true" remark="md5 upper"><! [CDATA[C787AFE9D9E86A6A6C78ACE99CA778EE]]></case>
+        <case assert="false"><! [CDATA[please like and subscribe to my]]></case>
+        <case assert="false"><! [CDATA[A32efC32c79823a2123AA8cbDDd3231c]]></case>
+        <case assert="false"><! 
+        <case assert="false"><! [CDATA[01110101001110011101011010101001]]></case>
+        <case assert="false"><! [CDATA[0000000000000000000000000000000000]]></case>
     </test>
-    <solution>
-        ## 安全风险
-        硬编码密码
+    <solution
+        ## Security risks
+        Hard-coded passwords
 
-        ## 修复方案
-        将密码抽出统一放在配置文件中，配置文件不放在git中
+        ## Fix solution
+        Pull out the passwords and put them uniformly in the config file, the config file is not in git
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>
@@ -30,45 +30,48 @@
 ```
 
 
-## 规则字段规范
+## Rule field specification
 
-|字段（英文）|字段（中文）|是否必填|类型|描述|例子|
-|---|---|---|---|---|---|
-|`name`|规则名称|是|`string`|描述规则名称|`<name value="Logger敏感信息" />`|
-|`language`|规则语言|是|`string`|设置规则针对的开发语言，参见`languages`|`<language value="php" />`|
-|`match`|匹配规则1|是|`string`|匹配规则1|`<match mode="regex-only-match"><![CDATA[regex content]]></match>`|
-|`match2`|匹配规则2|否|`string`|匹配规则2|`<match2 block="in-function-up"><![CDATA[regex content]]></match2>`|
-|`repair`|修复规则|否|`string`|匹配到此规则，则不算做漏洞|`<repair block=""><![CDATA[regex content]]></repair>`|
-|`level`|影响等级|是|`integer`|标记该规则扫到的漏洞危害等级，使用数字1-10。|`<level value="3" />`|
-|`solution`|修复方案|是|`string`|该规则扫描的漏洞对应的**安全风险**和**修复方案**|`<solution>详细的安全风险和修复方案</solution>`|
-|`test`|测试用例|是|`case`|该规则对应的测试用例|`<test><case assert="true"><![CDATA[测试存在漏洞的代码]]></case><case assert="false"><![CDATA[测试不存在漏洞的代码]]></case></test>`|
-|`status`|是否开启|是|`boolean`|是否开启该规则的扫描，使用`on`/`off`来标记|`<status value="1" />`|
-|`author`|规则作者|是|`attr`|规则作者的姓名和邮箱|`<author name="Feei" email="feei@feei.cn" />`|
+|Field (English)|Field (Chinese)|Required|Type|Description|Example|
+|--|--|--|--|--|--|--|--|--|
+|`name`|Rule name|Yes|`string`|Description|Rule name|`<name value="Logger sensitive information" />`|
+|`language`|Rule language|is|`string`|set the development language the rule targets, see `languages`|`<language value="php" />`|
+|`match`|match rule1|yes|`string`|match rule1|`<match mode="regex-only-match"><! [CDATA[regex content]]></match>`|
+|`match2`|match rule 2|no||`string`|match rule 2|`<match2 block="in-function-up"><! [CDATA[regex content]]></match2>`|
+|`repair`|fix rule|no|`string`|matches to this rule, then it doesn't count as a vulnerability|`<repair block=""><! [CDATA[regex content]]></repair>`|
+|`level`|impact level|is|`integer`|to mark the level of vulnerability hazard swept by the rule, using numbers 1-10.|`<level value="3" />`|
+|`solution`|fix solution|is|`string`|the **security risk** and **fix solution** corresponding to the vulnerabilities scanned by this rule|`<solution>detailed security risk and fix solution</solution>`|
+|`test`|test case|is|`case`|the test case corresponding to this rule|`<test><case assert="true"><! [CDATA[test for vulnerable code]]></case><case assert="false"><! [CDATA[test for code that is not vulnerable]]></case></test>`|
+|`status`|whether to turn on|yes|`boolean`|whether to turn on scanning for this rule, using `on`/`off` to mark|`<status value="1" />`|
+|`author`|the rule author|yes|`attr`|the rule author's name and email|`<author name="Feei" email="feei@feei.cn" />`|
 
-## 核心字段`<match>`/`<match2>`/`<repair>`编写规范
+## Core field `<match>`/`<match2>`/`<repair>` writing specification
 
-#### `<match>` Mode（`<match>`的规则模式）
-> 用来描述规则类型，只能用在`<match>`中。
+#### `<match>` Mode (rule mode for `<match>`)
+> Used to describe the rule type, which can only be used in `<match>`.
 
-|Mode|类型|默认模式|支持语言|描述|
-|---|---|---|---|---|
-|regex-only-match|正则仅匹配|是|*|默认是此模式，但需要显式的写在规则文件里。以正则的方式进行匹配，匹配到内容则算作漏洞|
-|regex-param-controllable|正则参数可控|否|PHP/Java|以正则模式进行匹配，匹配出的变量可外部控制则为漏洞|
-|function-param-controllable|函数参数可控|否|PHP|内容写函数名，将搜索所有该函数的调用，若参数外部可控则为漏洞。|
-|find-extension|寻找指定后缀文件|否|*|找到指定后缀文件则算作漏洞|
+|Mode|type|default mode|support language|description|
+|--|--|--|--|--|--|
+|regex-only-match|regular-only-match|is|yes|*| defaults to this mode, but needs to be explicitly written in the rules file. Match as a regular, and a match to content counts as a vulnerability|
+|regex-param-controllable|regular-param-controllable|no|PHP/Java|matches in regular mode, matching a variable that is externally controllable is a vulnerability|
+|function-param-controllable|function-param-controllable|no|PHP|Write the function name, will search for all calls to the function, if the parameter can be controlled externally then it is a vulnerability. |find-extension
+|find-extension|Find the specified suffix file|No|*|Finding the specified suffix file counts as a vulnerability|
 
-#### `<match2>`/`<repair>` Block（`<match2>`/`<repair>`的匹配区块）
-> 用来描述需要匹配的代码区块位置，只能用在`<match2>`或`<repair>`中。
+#### `<match2>`/`<repair>` Block (the match block for `<match2>`/`<repair>`)
+> Used to describe the location of the block of code to be matched, and can only be used in `<match2>` or `<repair>`.
 
-|区块|描述|
-|---|---|
-| in-current-line | 由第一条规则触发的所在行 |
-| in-function | 由第一条规则触发的函数体内 |
-| in-function-up | 由第一条规则触发的所在行之上，所在函数体之内 |
-| in-function-down | 由第一条规则触发的所在行之下，所在函数体之内 |
-| in-file | 由第一条规则触发的文件内 |
-| in-file-up | 由第一条规则触发的所在行之上，所在文件之内 |
-| in-file-down | 由第一条规则触发的所在行之下，所在文件之内 |
+|block|description|
+|--|--|
+| in-current-line | The line triggered by the first rule |
+| in-function | within the function triggered by the first rule |
+| in-function-up | above the line triggered by the first rule, within the function body |
+| in-function-down | below the line triggered by the first rule, inside the function body |
+| in-file | inside the file triggered by the first rule
+| in-file-up | above the line triggered by the first rule, inside the file |
+| in-file-down | below the line triggered by the first rule, within the file |
 
 ---
-下一章：[规则样例](http://cobra.feei.cn/rule_demo)
+Next Chapter: [Sample Rule](http://cobra.feei.cn/rule_demo)
+
+
+Translated with www.DeepL.com/Translator (free version)

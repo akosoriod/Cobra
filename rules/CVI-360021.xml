@@ -8,11 +8,11 @@
         <case assert="true"><![CDATA[$a = "ZXZhbA==";array_walk($array, base64_decode($a));]]></case>
     </test>
     <solution>
-        ## 安全风险
-        代码中存在webshell
+        ## Security Risks
+        Presence of webshell in the code
 
-        ## 修复方案
-        删除
+        ## Fix solution
+        Delete
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>

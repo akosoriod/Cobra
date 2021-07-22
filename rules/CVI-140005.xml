@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="获取URI或参数未过滤导致的XSS"/>
+    <name value="Get URI or parameters not filtered resulting in XSS"/>
     <language value="lua"/>
     <match mode="regex-only-match"><![CDATA[ngx.say\s*\(\s*ngx\.(var|req)\.(request_uri|uri|get_uri_args\(\)|get_post_args\(\))]]></match>
     <level value="4"/>
     <solution>
-        ## 安全风险
-        未过滤的URI和参数直接输出可导致XSS
+        ## Security risks
+        Direct output of unfiltered URIs and parameters can lead to XSS
 
-        ## 修复方案
-        输出时进行过滤
+        ## Fixes
+        Filtering on output
     </solution>
     <test>
         <case assert="true"><![CDATA[

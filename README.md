@@ -1,4 +1,17 @@
-# Cobra
+# Cobra - English version
+## Updated 06-2021 python3
+>
+> - updated dependency Werkzeug==0.15.5
+> - Fix conflict time.clock
+> - Results on webApp translated into English 
+> 
+## Web Deploy with Conda
+> - `conda create --name cobra python=3`
+> - `conda activate cobra`
+> - `pip install -r requirements.txt`
+> - `cp config.template config`
+> - `python cobra.py -H 127.0.0.1 -P 5000`
+
 [![Build Status](https://travis-ci.org/WhaleShark-Team/cobra.svg?branch=master)](https://travis-ci.org/WhaleShark-Team/cobra)
 [![Coverage Status](https://coveralls.io/repos/github/WhaleShark-Team/cobra/badge.svg?branch=master)](https://coveralls.io/github/WhaleShark-Team/cobra?branch=master)
 [![GitHub (pre-)release](https://img.shields.io/github/release/WhaleShark-Team/cobra/all.svg)](https://github.com/WhaleShark-Team/cobra/releases)
@@ -6,27 +19,27 @@
 
 [![asciicast](https://raw.githubusercontent.com/WhaleShark-Team/cobra/master/docs/report_03.jpg)](https://asciinema.org/a/132572)
 
-**该项目设计已无法实现当前白盒扫描要求，已不在维护，仅做研究使用，请勿在生产环境使用**
+**The project design is no longer able to achieve the current white-box scanning requirements, and is no longer being maintained for research use only, please do not use it in a production environment**
 
-## Introduction（介绍）
-Cobra是一款**源代码安全审计**工具，支持检测多种开发语言源代码中的**大部分显著**的安全问题和漏洞。
+## Introduction
+Cobra is a **source code security audit** tool that supports detection of **most significant** security issues and vulnerabilities in source code of multiple development languages.
 
-## Features（特点）
-#### Multi-language Supported（支持多种开发语言）
-> 支持PHP、Java等开发语言，并支持数十种类型文件。
+## Features
+#### Multi-language Supported (support for multiple development languages)
+> Supports development languages such as PHP, Java, and dozens of types of files.
 
-#### Multi-Vulnerabilities Supported（支持多种漏洞类型）
-> 首批开放数万条不安全的依赖检查规则和数十条代码安全扫描规则，后续将持续开放更多扫描规则。
+#### Multi-Vulnerabilities Supported (support for multiple vulnerability types)
+> The first batch of tens of thousands of insecure dependency checking rules and dozens of code security scanning rules are open, and more scanning rules will continue to be opened later.
 
-#### GUI/CLI/API Mode（命令行模式和API模式）
-> 提供本地Web Server服务，可使用GUI可视化操作，也可支持本地API接口，方便和其它系统（发布系统、CI等）对接扩展。
+#### GUI/CLI/API Mode (command line mode and API mode)
+> Provide local Web Server service, can use GUI visual operation, also can support local API interface, convenient and other systems (release system, CI, etc.) docking extension.
 
-## Screenshot（截图）
-[![report01](https://raw.githubusercontent.com/whaleshark-team/cobra/master/docs/report_01.jpg)](https://whaleshark-team.github.io/cobra/api)
-[![report02](https://raw.githubusercontent.com/whaleshark-team/cobra/master/docs/report_02.jpg)](https://whaleshark-team.github.io/cobra/api)
+## Screenshot
+Screenshot [! [report01](https://raw.githubusercontent.com/whaleshark-team/cobra/master/docs/report_01.jpg)](https://whaleshark-team.github.io/ cobra/api)
+[! [report02](https://raw.githubusercontent.com/whaleshark-team/cobra/master/docs/report_02.jpg)](https://whaleshark-team.github.io/ cobra/api)
 
-## Contributors（贡献者）
-项目由[Feei](https://github.com/FeeiCN)发起并主导，核心开发者[LiGhT1EsS](https://github.com/LiGhT1EsS)、[BlBana](https://github.com/BlBana)、[40huo](https://github.com/40huo)、[braveghz](https://github.com/braveghz)，也感谢其他[贡献者](https://github.com/WhaleShark-Team/cobra/graphs/contributors)，欢迎提交PR。
+## Contributors
+The project was initiated and led by [Feei](https://github.com/FeeiCN), with core developers [LiGhT1EsS](https://github.com/LiGhT1EsS), [BlBana](https://github.com/BlBana), [ 40huo](https://github.com/40huo), [braveghz](https://github.com/braveghz), and also thanks to other [contributors](https://github.com/WhaleShark-Team/cobra/ graphs/contributors), feel free to submit PRs.
 
-## Links（链接）
-- [Cobra文档](https://whaleshark-team.github.io/cobra/)
+## Links
+- [Cobra Documentation](https://whaleshark-team.github.io/cobra/

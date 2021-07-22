@@ -1,94 +1,94 @@
-# Introduction（介绍）
+# Introduction
 
-## 什么是"源代码安全审计（白盒扫描）"？
-> 由于开发人员的技术水平和安全意识各不相同，导致可能开发出一些存在安全漏洞的代码。
-> 攻击者可以通过渗透测试来找到这些漏洞，从而导致应用被攻击、服务器被入侵、数据被下载、业务受到影响等等问题。
-> "源代码安全审计"是指通过审计发现源代码中的安全隐患和漏洞，而Cobra可将这个流程自动化。
+## What is "Source Code Security Audit (White Box Scan)"?
+> Due to the varying skill levels and security awareness of developers, it is possible to develop code that has security vulnerabilities.
+> Attackers can find these vulnerabilities through penetration testing, which can lead to application attacks, server intrusions, data downloads, business impacts, and other problems.
+> "Source code security auditing" is the process of discovering security risks and vulnerabilities in source code through auditing, and Cobra can automate this process.
 
-## Cobra为什么能从源代码中扫描到漏洞？
-> 对于一些特征较为明显的可以使用正则规则来直接进行匹配出，比如硬编码密码、错误的配置等。
-> 对于OWASP Top 10的漏洞，Cobra通过预先梳理能造成危害的函数，并定位代码中所有出现该危害函数的地方，继而基于Lex(Lexical Analyzer Generator, 词法分析生成器)和Yacc(Yet Another Compiler-Compiler, 编译器代码生成器)将对应源代码解析为AST(Abstract Syntax Tree, 抽象语法树)，分析危害函数的入参是否可控来判断是否存在漏洞（目前仅接入了PHP-AST，其它语言AST接入中）。
+## Why can Cobra scan for vulnerabilities in source code?
+> For some obvious features can use regular rules to directly match out, such as hard-coded passwords, misconfigurations, etc.
+> For the OWASP Top 10 vulnerabilities, Cobra can locate all the vulnerable functions in the code by pre-sorting them and locating them based on Lex (Lexical Analyzer Generator) and Yacc (Yet Another Compiler-Compiler). ) will parse the corresponding source code into AST (Abstract Syntax Tree), and analyze whether the entry of the hazard function is controllable to determine whether there is a vulnerability (currently only PHP-AST is connected, other languages AST is connected).
 
-## Cobra和其它源代码审计系统有什么区别或优势？
-> Cobra定位是自动化发现源代码中**大部分显著的安全问题**，对于一些隐藏较深或特有的问题建议人工审计。
+## What is the difference or advantage between Cobra and other source code audit systems?
+> Cobra is positioned to automate the discovery of **most notable security issues** in source code, with manual auditing recommended for some deeper hidden or unique issues.
 
-- 开发源代码（基于开放的MIT License，可更改源码）
-- 支持开发语言多（支持十多种开发语言和文件类型）
-- 支持漏洞类型多（支持数十种漏洞类型）
-- 支持各种场景集成（提供API也可以命令行使用）
-- 专业支持，持续维护（由白帽子、开发工程师和安全工程师一起持续维护更新，并在多家企业内部使用）
+- Development source code (based on open MIT License, source code can be changed)
+- Support for many development languages (support for more than ten development languages and file types)
+- Support many types of vulnerabilities (support dozens of vulnerability types)
+- Support for a variety of scenarios integration (provides API can also be used on the command line)
+- Professional support, continuous maintenance (continuously maintained and updated by white hats, development engineers and security engineers together, and used internally by many enterprises)
 
-## Cobra支持哪些开发语言？
-> 目前Cobra主要支持PHP、Java等主要开发语言及其它数十种文件类型，并持续更新规则和引擎以支持更多开发语言，具体见支持的[开发语言和文件类型](http://cobra.feei.cn/languages)。
+## What development languages does Cobra support?
+> Cobra currently supports major development languages such as PHP, Java and dozens of other file types, and continues to update its rules and engine to support more development languages, see [Development Languages and File Types](http://cobra.feei.cn/languages) for details of support.
 
-## Cobra能发现哪些漏洞？
-> 覆盖大部分Web端常见漏洞和一些移动端（Android、iOS）通用漏洞，具体见支持的[漏洞类型](http://cobra.feei.cn/labels)。
+## What vulnerabilities does Cobra find?
+> Covers most common vulnerabilities on the web side and some general vulnerabilities on the mobile side (Android, iOS), see [Vulnerability Types](http://cobra.feei.cn/labels) for support.
 
 | ID | Label | Description(EN) | Description(CN) |
-|---|---|---|---|
-| 110 | MS | Misconfiguration | 错误的配置 |
-| 120 | SSRF | Server-Side Forge | 服务端伪造 |
-| 130 | HCP | Hard-coded Password | 硬编码密码 |
-| 140 | XSS | Cross-Site Script | 跨站脚本 |
-| 150 | CSRF | Cross-Site Request Forge | 跨站请求伪造 |
-| 160 | SQLI | SQL Injection | SQL注入 |
-| 163 | XI | Xpath Injection | Xpath注入 |
-| 165 | LI | LDAP Injection | LDAP注入 |
-| 167 | XEI| XML External Entity Injection | XML实体注入 |
-| 170 | FI | Local/Remote File Inclusion | 文件包含漏洞 |
-| 180 | CI | Code Injection  | 代码注入 |
-| 181 | CI | Command Injection | 命令注入 |
-| 190 | IE | Information Exposure  | 信息泄露 |
-| 200 | PPG | Predictable Pseudorandom Generator | 可预测的伪随机数生成器 |
-| 210 | UR | Unvalidated Redirect | 未经验证的任意链接跳转 |
-| 220 | HRS | HTTP Response Splitting | HTTP响应拆分 |
-| 230 | SF | Session Fixation | SESSION固定 |
-| 260 | US | unSerialize | 反序列化漏洞 |
-| 280 | DF |  Deprecated Function  | 废弃的函数 |
-| 290 | LB | Logic Bug  | 逻辑错误 |
-| 320 | VO | Variables Override | 变量覆盖漏洞 |
-| 350 | WF | Weak Function | 不安全的函数 |
-| 355 | WE | Weak Encryption | 不安全的加密 |
+|--|--|--|--|--|
+| 110 | MS | Misconfiguration | Misconfiguration |
+| 120 | SSRF | Server-Side Forge | Server-side forgery |
+| 130 | HCP | Hard-coded Password | Hard-coded Password |
+| 140 | XSS | Cross-Site Script | Cross-Site Scripting |
+| 150 | CSRF | Cross-Site Request Forge | Cross-Site Request Forgery |
+| 160 | SQLI | SQL Injection | SQL Injection
+| 163 | XI | Xpath Injection | Xpath Injection
+| 165 | LI | LDAP Injection | LDAP Injection
+| 167 | XEI| XML External Entity Injection | XML Entity Injection |
+| 170 | FI | Local/Remote File Inclusion | File Inclusion Vulnerability
+| 180 | CI | Code Injection | Code Injection
+| 181 | CI | Command Injection | Command Injection
+| 190 | IE | Information Exposure | Information leakage |
+| 200 | PPG | Predictable Pseudorandom Generator | Predictable Pseudorandom Generator
+| 210 | UR | Unvalidated Redirect | Unvalidated Arbitrary Link Bounce |
+| 220 | HRS | HTTP Response Splitting | HTTP Response Splitting |
+| 230 | SF | Session Fixation | SESSION fixation |
+| 260 | US | unSerialize | Deserialization Vulnerability
+| 280 | DF | Deprecated Function | deprecated function |
+| 290 | LB | Logic Bug | Logic Bug
+| 320 | VO | Variables Override | Variable Override Vulnerability
+| 350 | WF | Weak Function | Insecure Function |
+| 355 | WE | Weak Encryption | Insecure Encryption |
 | 360 | WS | WebShell | WebShell |
-| 970 | AV | Android Vulnerabilities | Android漏洞 |
-| 980 | IV | iOS Vulnerabilities | iOS漏洞 |
-| 999 | IC | Insecure Components| 引用了存在漏洞的三方组件(Maven/Pods/PIP/NPM) |
+| 970 | AV | Android Vulnerabilities | Android Vulnerabilities |
+| 980 | IV | iOS Vulnerabilities | iOS Vulnerabilities
+| 999 | IC | Insecure Components| referencing a vulnerable three-party component (Maven/Pods/PIP/NPM) |
 
-## Cobra能应用在哪些场景？
-1. 【漏洞出现前】通过内置的扫描规则对公司项目进行日常扫描，并推进解决发现的漏洞。
-2. 【漏洞出现后】当出现一种新漏洞，可以立刻编写一条Cobra扫描规则对公司全部项目进行扫描来判断受影响的项目。
+## What scenarios can Cobra be used in?
+1. [Before vulnerabilities appear] Daily scanning of company projects through built-in scanning rules and advancing to resolve the vulnerabilities found.
+2. [After the vulnerability appears] When a new vulnerability appears, you can immediately write a Cobra scan rule to scan all company projects to determine the affected projects.
 
-## Cobra是什么类型应用？
-> Cobra提供Web服务的同时也提供了命令行服务。
+## What type of application is Cobra?
+> Cobra provides web services as well as command line services.
 
-1. 【CLI】通过命令行扫描本地源代码，发现其中安全问题。
-2. 【API&GUI】以Web Server形式部署在服务器上，供内部人员通过GUI的形式访问使用，并可以通过API集成到CI或发布系统中。
+1. [CLI] Scan local source code through command line to find security issues in it.
+2. 【API&GUI】 Deployed as Web Server on the server for internal staff to access and use in the form of GUI, and can be integrated into CI or release system through API.
 
 
-## 如何参与Cobra开发？
-> Cobra发展离不开开源社区的贡献，Cobra欢迎有Python开发经验且对代码审计感兴趣的人加入到我们的开源社区开发团队共同参与贡献(可通过Pull Request提交代码，之后我们邀请加入社区开发组沟通群)。
+## How to participate in Cobra development?
+> Cobra development is inseparable from the contributions of the open source community, Cobra welcomes people who have Python development experience and are interested in code auditing to join our open source community development team and contribute together (you can submit code via Pull Request, and then we invite you to join the community development group communication group).
 
-# Cobra文档
-- 安装
-    - [Cobra安装](http://cobra.feei.cn/installation)
-- 基础使用
-    - [CLI模式使用方法](http://cobra.feei.cn/cli)
-    - [API模式使用方法](http://cobra.feei.cn/api)
-- 进阶使用
-    - [高级功能配置](http://cobra.feei.cn/config)
-    - [升级框架和规则源](http://cobra.feei.cn/upgrade)
-    - [Report模块使用](http://cobra.feei.cn/report)
-- 规则开发规范
-    - [规则模板](http://cobra.feei.cn/rule_template)
-    - [规则样例](http://cobra.feei.cn/rule_demo)
-    - [规则文件命名规范](http://cobra.feei.cn/rule_name)
-    - [规则开发流程](http://cobra.feei.cn/rule_flow)
-- 框架引擎
-    - [开发语言和文件类型定义](http://cobra.feei.cn/languages)
-    - [漏洞类型定义](http://cobra.feei.cn/labels)
-    - [危害等级定义](http://cobra.feei.cn/level)
-    - [程序目录结构](http://cobra.feei.cn/tree)
-- 贡献代码
-    - [单元测试](http://cobra.feei.cn//test)
-    - [贡献者](http://cobra.feei.cn/contributors)
-    - [如何贡献代码？](https://github.com/WhaleShark-Team/cobra/blob/master/CONTRIBUTING.md)
+# Cobra Documentation
+- Installation
+    - [Cobra Installation](http://cobra.feei.cn/installation)
+- Basic usage
+    - How to use CLI mode](http://cobra.feei.cn/cli)
+    - How to use the API mode](http://cobra.feei.cn/api)
+- Advanced use
+    - [Advanced feature configuration](http://cobra.feei.cn/config)
+    - [Upgrade framework and rule source](http://cobra.feei.cn/upgrade)
+    - [Report module usage](http://cobra.feei.cn/report)
+- Rule development specification
+    - [Rule Template](http://cobra.feei.cn/rule_template)
+    - [Sample Rules](http://cobra.feei.cn/rule_demo)
+    - [Rules file naming specification](http://cobra.feei.cn/rule_name)
+    - [Rule Development Process](http://cobra.feei.cn/rule_flow)
+- Framework engine
+    - [Development language and file type definitions](http://cobra.feei.cn/languages)
+    - [Vulnerability type definition](http://cobra.feei.cn/labels)
+    - [Hazard Level Definition](http://cobra.feei.cn/level)
+    - [Program directory structure](http://cobra.feei.cn/tree)
+- Contributed Code
+    - [Unit Test](http://cobra.feei.cn//test)
+    - [Contributors](http://cobra.feei.cn/contributors)
+    - [How to contribute code?] (https://github.com/WhaleShark-Team/cobra/blob/master/CONTRIBUTING.md)

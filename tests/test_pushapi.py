@@ -29,6 +29,6 @@ def test_push_to_api():
     pusher.add_data(target='https://github.com/test/test.git', sid='abcdefg')
     assert 'https://' in json.dumps(pusher.post_data, ensure_ascii=False)
     assert '2015-01-31' in json.dumps(pusher.post_data, ensure_ascii=False)
-    assert '硬编码IP' in json.dumps(pusher.post_data, ensure_ascii=False)
+    assert 'Hardcoded IP' in json.dumps(pusher.post_data, ensure_ascii=False)
     assert 'summitid' in json.dumps(pusher.post_data, ensure_ascii=False)
     assert 'description' in json.dumps(pusher.post_data, ensure_ascii=False)

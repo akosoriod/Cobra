@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="变量覆盖漏洞"/>
+    <name value="Variable override vulnerability"/>
     <language value="php"/>
     <match mode="function-param-controllable"><![CDATA[import_request_variables|parse_str|mb_parse_str]]></match>
     <level value="4"/>
@@ -13,16 +13,16 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        变量覆盖漏洞
+        ## Security risks
+        Variable Override Vulnerability
 
-        ## 修复方案
-        1、使用原始变量,不进行变量注册，直接使用原生的$_GET、$_POST等数组变量进行操作；
-        2、注册变量前判断变量是否存在。自行申明的变量一定要初始化，不然即使注册变量代码在执行流程最前面也能覆盖掉这些未初始化的变量。
+        ## Fix solution
+        1 Use the original variables, do not register the variables, directly use the native $_GET, $_POST and other array variables for operation.
+        2 Judge whether the variable exists before registering it. The variables declared by yourself must be initialized, otherwise the uninitialized variables can be overwritten even if the code of the registered variables is at the top of the execution process.
 
-        ## 代码样例
+        ## Sample code
 
-        ### 错误代码样例
+        ### Sample error code
         ```php
         <?php
             $a = '0';
@@ -34,7 +34,7 @@
             }
         ?>
         ```
-        构造 http://www.test.com/test.php?a=1时，会打印出true
+        Constructing http://www.test.com/test.php?a=1 will print out true
 
     </solution>
     <status value="on"/>

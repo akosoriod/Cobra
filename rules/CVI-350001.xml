@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="unlink删除文件"/>
+    <name value="extract leads to variable override vulnerability"/>
     <language value="php"/>
     <match mode="function-param-controllable"><![CDATA[unlink]]></match>
     <repair block="in-function-up"><![CDATA[in_array]]></repair>
@@ -16,23 +16,23 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        在使用unlink函数删除文件的时候没有考虑对该参数进行足够的过滤，导致存在多个任意文件删除的漏洞。
+       ## Security risks
+        Insufficient filtering of this parameter was considered when using the unlink function to delete files, resulting in a vulnerability of multiple arbitrary file deletions.
 
-        ## 修复方案
-        对用户输入的参数进行严格过滤(比如使用in_array设置允许的参数范围)。
+        ## Fix Solution
+        Strictly filter the parameters entered by the user (e.g. use in_array to set the range of allowed parameters).
 
-        ## 示例代码
+        ## Sample code
         ```php
         f($post_submit_action == "delete_file"){
             $file_name = $_POST["file_name"];
-            $file = "/home/file/".$file_name;
+            $file = "/home/file/". $file_name;
             unlink($file);
             return;
         }
         ```
-        POST参数作为unlink函数的参数，当我们提交 `file_name=../../index.php`就会导致任意文件删除漏洞。
-        应该按照实际需要设置严格的参数过滤。
+        The POST parameter is used as an argument to the unlink function when we submit `file_name=... /... /index.php` will lead to an arbitrary file deletion vulnerability.
+        Strict parameter filtering should be set according to actual needs.
     </solution>
     <status value="on"/>
     <author name="Lightless" email="viarus@qq.com"/>

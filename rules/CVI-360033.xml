@@ -23,20 +23,20 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        代码中存在webshell
+        ## Security risks
+        Presence of webshell in the code
 
-        特征 `setcookie("N3tsh_surl");` 对应webshell样例
-        [link](https://github.com/tennc/webshell/blob/e2fd7eed0ca27430af65862bdcefd4bc268805f2/web-malware-collection-13-06-2012/PHP/c99.txt)
+        Feature `setcookie("n3tsh_surl");` Corresponds to webshell sample
+        [link](https://github.com/tennc/webshell/blob/e2fd7eed0ca27430af65862bdcefd4bc268805f2/web-malware-collection-13-06-2012/PHP/c99. txt)
 
-        特征 `function Tihuan_Auto`  对应webshell样例
+        Feature `function Tihuan_Auto` for webshell example
         [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/php/ghost_source.php)
 
-        特征 `http://www.7jyewu.cn/`  对应webshell样例
+        The feature `http://www.7jyewu.cn/` corresponds to the webshell example
         [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/www-7jyewu-cn/DOC_ZIBSZXBIEG.php)
 
-        ## 修复方案
-        删除
+        ## Fix solution
+        Remove
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>

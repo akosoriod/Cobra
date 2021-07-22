@@ -10,14 +10,14 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        代码中存在webshell
+        ## Security risks
+        Presence of webshell in the code
 
-        特征 `$back_connect="IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU2` 对应webshell样例
-        [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/138shell/N/NIX%20REMOTE%20WEB-SHELL%20v.0.5%20alpha%20Lite%20Public%20Version.txt)
+        Feature `$back_connect="IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU2` Corresponding webshell sample
+        [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/138shell/N/NIX%20REMOTE%20WEB-SHELL%20v.0. 5%20alpha%20Lite%20Public%20Version.txt)
 
-        ## 修复方案
-        删除
+        ## Fix Solution
+        Delete
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>

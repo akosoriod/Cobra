@@ -176,7 +176,7 @@ class Directory(object):
     """
 
     def collect_files(self):
-        t1 = time.clock()
+        t1 = time.time()
         self.files(self.absolute_path)
         self.result['no_extension'] = {'count': 0, 'list': []}
         for extension, values in self.type_nums.items():
@@ -197,7 +197,7 @@ class Directory(object):
                     self.result['no_extension']['list'].append(f)
         if self.result['no_extension']['count'] == 0:
             del self.result['no_extension']
-        t2 = time.clock()
+        t2 = time.time()
         # reverse list count
         self.result = sorted(self.result.items(), key=lambda t: t[0], reverse=False)
         return self.result, self.file_sum, t2 - t1

@@ -45,7 +45,7 @@ def test_export_to_json():
     # commit_time
     assert "2015-01-31" in json_string
     # rule_name
-    assert "硬编码IP" in json_string
+    assert "Hardcoded IP" in json_string
 
     os.remove(os.path.join(export_path, 'test.json'))
 
@@ -69,7 +69,7 @@ def test_export_to_xml():
     # commit_time
     assert "2015-01-31" in xml_string
     # rule_name
-    assert "硬编码IP" in xml_string
+    assert "Hardcoded IP" in xml_string
 
     os.remove(os.path.join(export_path, 'test.xml'))
 
@@ -95,4 +95,4 @@ def test_export_to_pretty_table():
     # commit_time
     assert "2015-01-31" in table_string
     # vulnerability
-    assert "硬编码IP" in table_string
+    assert "Hardcoded IP" in table_string

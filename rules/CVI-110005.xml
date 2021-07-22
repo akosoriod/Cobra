@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="允许任意证书（CWE-295）"/>
+    <name value="Allow arbitrary certificates (CWE-295）"/>
     <language value="java"/>
     <match mode="regex-only-match"><![CDATA[X509Certificate\[\s?\]\s*getAcceptedIssuers\(\s?\)]]></match>
     <level value="5"/>
     <solution>
-        ## 安全风险
-        允许任意证书存在MITM攻击风险
+        ## Security Risks
+        Allow arbitrary certificates with MITM attack risk
 
-        ## 修复方案
-        使用TrustManager允许特定证书
+        ## Fix solution
+        Use TrustManager to allow specific certificates.
     </solution>
     <test>
         <case assert="true"><![CDATA[

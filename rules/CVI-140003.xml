@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="直接输出入参可能导致XSS"/>
+    <name value="Direct output of incoming parameters may lead to XSS"/>
     <language value="php"/>
     <match mode="function-param-controllable"><![CDATA[(echo|print|print_r|exit|die|printf|vprintf|trigger_error|user_error|odbc_result_all|ovrimos_result_all|ifx_htmltbl_result)]]></match>
     <repair block="in-function"><![CDATA[(htmlspecialchars]]></repair>
@@ -14,12 +14,12 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        直接输出入参会导致XSS
+        ## Security risks
+        Direct output to the reference can lead to XSS
 
-        ## 修复方案
-        1. 使用`htmlentities`函数进行转义
-        2. 使用Begis安全组件对参数进行过滤后使用
+        ## Fixes
+        1. Use `htmlentities` function to escape
+        2. Use Begis security component to filter the parameters and then use
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>

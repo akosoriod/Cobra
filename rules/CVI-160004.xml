@@ -19,21 +19,21 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
+## Security risks
 
-        ### SQL注入形成原因
-        SQL语句用户可控，若未对参数进行足够的过滤则会导致SQL注入
+        ### Causes of SQL injection formation
+        SQL statements are user controllable, but SQL injection can occur if there is not enough filtering of parameters.
 
-        ### 风险
-        - 用户信息被篡改
-        - 攻击者偷取代码和用户数据
-        - 业务运营的所有数据被恶意获取
-        - 线上代码被非法篡改，并造成为恶意攻击者输送流量或其他利益的影响
+        ### Risks
+        - User information is tampered with
+        - Attacker steals code and user data
+        - All data of business operation is maliciously obtained
+        - Online code is illegally tampered with and causes the impact of sending traffic or other benefits to malicious attackers
 
-        ## 修复方案
-        - 已不再使用的功能，直接做下线处理
-        - 引入安全组件
-        - 代码层修复:对用户可控参数进行严格过滤
+        ## Fix Solution
+        - The functions that are no longer used are directly taken offline.
+        - Introduce security components
+        - Code level fix: strict filtering of user-controllable parameters
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="ECB加密模式"/>
+    <name value="ECB encryption mode"/>
     <language value="java"/>
     <match mode="regex-only-match"><![CDATA[Cipher....Instance\s?\(\s?\".*ECB]]></match>
     <level value="2"/>
     <solution>
-        ## 安全风险
-        ECB模式是不安全的
+        ## Security risks
+        ECB mode is insecure
 
-        ## 修复方案
-        建议使用GCM模式
+        ## Fix solution
+        GCM mode is recommended
     </solution>
     <test>
         <case assert="true"><![CDATA[

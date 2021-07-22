@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="extract导致变量覆盖漏洞"/>
+    <name value="extract leads to variable override vulnerability"/>
     <language value="php"/>
     <match mode="function-param-controllable"><![CDATA[extract]]></match>
     <repair mode="in-current-line"><![CDATA[extract\s*\(\s*\w*\s*,\s*(?:EXTR_SKIP|EXTR_PREFIX_SAME|EXTR_PREFIX_ALL|EXTR_PREFIX_IF_EXISTS|EXTR_IF_EXISTS)\s*[,\)]]]></repair>
@@ -9,22 +9,22 @@
          <case assert="true"><![CDATA[extract($_GET['var']);]]></case>
     </test>
     <solution>
-        ## 安全风险
-        变量覆盖漏洞
+        ## Security risks
+        Variable Override Vulnerability
 
-        ## 修复方案
-        在当前行通过flags修复(eg:调用extract()时使用EXTR_SKIP保证已有变量不会被覆盖)
+        ## Fix solution
+        Fix by flags in the current line (eg: use EXTR_SKIP when calling extract() to ensure that existing variables are not overwritten)
 
-        ## 举例
+        ## Example
         ```php
-        <?php
+        <?php php
             $a = '0';
-            extract($_GET)；
+            extract($_GET).
             if($a==1){echo "true!";}
             else{echo "false!";}
         ?>
         ```
-        构造 http://www.test.com/test.php?a=1时，会打印出true
+        Constructing http://www.test.com/test.php?a=1时 will print true
 
     </solution>
     <status value="on"/>

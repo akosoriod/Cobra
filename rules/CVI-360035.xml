@@ -23,12 +23,12 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        代码中存在webshell
-        [webshell样例](https://github.com/tennc/webshell/blob/master/php/p2j/PHP%20reflection.php.txt)
+        ## Security risks
+        Presence of webshell in the code
+        [webshell sample](https://github.com/tennc/webshell/blob/master/php/p2j/PHP%20reflection.php.txt)
 
-        ## 修复方案
-        删除
+        ## Fix solution
+        Remove
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>

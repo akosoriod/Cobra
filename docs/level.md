@@ -1,12 +1,12 @@
-# Level（危害等级）
-> 漏洞等级定义建议按照漏洞最大危害来确定。
+# Level (hazard level)
+> The vulnerability level definition is recommended to be determined by the maximum hazard of the vulnerability.
 
-| 等级 | 分值 | 描述 |
-|---|---|---|
-| 严重 | 9-10 | 1.可获取服务器权限; 2.严重信息泄露; |
-| 高危 | 6-8 | 1.敏感信息泄露; 2.越权; 3.任意文件读取; 4.SQL注入; 5.git/svn泄露; 6.SSRF;|
-| 中危 | 3-5 | 1.XSS; 2.URL跳转; 3.CRLF; 4.LFI;|
-| 低危 | 1-2 | 1.CSRF; 2.JSONP劫持; 3.异常堆栈信息; 3.PHPINFO; 4.路径泄露; 5.硬编码密码; 6.硬编码内网IP域名; 7.不安全的加密方法; 8.不安全的随机数; 9.日志敏感记录;|
+| Level | Score | Description |
+|--|--|--|--|
+| Critical | 9-10 | 1. Can obtain server privileges; 2. Severe Information leakage; |
+| High risk | 6-8 | 1. Sensitive Information leakage; 2. Overstepping privileges; 3. Arbitrary file reading; 4. SQL injection; 5. git/svn leakage; 6. SSRF;|
+| Medium risk | 3-5 | 1.XSS; 2.URL jumping; 3.CRLF; 4.LFI;|
+| Low Risk | 1-2 | 1.CSRF; 2.JSONP hijacking; 3.Exceptional stack information; 3.PHPINFO; 4.Path leakage; 5.Hardcoded passwords; 6.Hardcoded intranet IP domains; 7.Insecure encryption methods; 8.Insecure random numbers; 9.Log sensitive records;|
 
----
-下一章：[程序目录结构](http://cobra.feei.cn/tree)
+--
+Next chapter: [Program directory structure](http://cobra.feei.cn/tree)

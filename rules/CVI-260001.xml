@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="PHP反序列化漏洞"/>
+    <name value="PHP deserialization vulnerability"/>
     <language value="php"/>
     <match mode="function-param-controllable"><![CDATA[unserialize]]></match>
     <level value="5"/>
@@ -11,12 +11,12 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        PHP反序列化漏洞(PHP对象注入漏洞)
-        传给 `unserialize()`的参数可控 + 构造序列化字符串 --> 从而控制对象内部的变量甚至是函数
+        ## Security risks
+        PHP deserialization vulnerability (PHP object injection vulnerability)
+        Parameters passed to `unserialize()` can be controlled + construct serialized strings --> thereby controlling variables or even functions inside the object
 
-        ## 修复方案
-        严格控制 `unserialize`函数的参数，对`unserialize`后的变量内容进行检查
+        ## Fixes
+        Strictly control the parameters of the `unserialize` function and check the contents of the variables after `unserialize`
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>

@@ -14,7 +14,7 @@ Cipher c = Cipher.getInstance("AES/ECB/NoPadding");
 <match mode="regex-only-match"><![CDATA[Cipher....Instance\s?\(\s?\".*ECB]]></match>
 ```
 ## 2. 多次匹配：需要进行多次匹配
-**例子：不安全的随机数（首先需要匹配到生成了随机数`new Random`，然后要确保随机数是系统的随机数而非自定义函数）**
+**例子：Insecure random numbers（首先需要匹配到生成了随机数`new Random`，然后要确保随机数是系统的随机数而非自定义函数）**
 ```java
 import util.random;
 Random r = new Random();

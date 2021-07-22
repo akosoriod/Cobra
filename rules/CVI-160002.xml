@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="拼接SQL注入"/>
+    <name value="Splicing SQL Injection"/>
     <language value="php"/>
     <match mode="regex-only-match"><![CDATA[(\"\s*(select|SELECT|insert|INSERT|update|UPDATE)\s*(([^;]\s*)*)?\$(.+?);?\")]]></match>
     <level value="8"/>
@@ -16,23 +16,24 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
+ ## Security risks
 
-        ### SQL注入漏洞形成原因
-        SQL语句拼接，若未对用户可控参数进行足够过滤，可能会导致SQL注入
+        ### SQL injection vulnerability formation causes
+        SQL statement splicing, if not filtered enough for user controllable parameters, may lead to SQL injection
 
-        ### 风险
-        - 用户信息被篡改
-        - 攻击者偷取代码和用户数据
-        - 业务运营的数据被恶意获取
-        - 线上代码被非法篡改，并造成为恶意攻击者输送流量或其他利益的影响
+        ### Risks
+        - User information is tampered with
+        - Attacker steals code and user data
+        - Data of business operations is maliciously obtained
+        - Online code is illegally tampered with and causes the impact of sending traffic or other benefits for malicious attackers
 
-        ## 修复方案
-        - 已不再使用的功能，直接做下线处理
-        - 引入安全组件
-        - 代码层修复:尽量不要拼接SQL语句。如必要，需对用户可控的参数进行严格过滤
+        ## Fix Solution
+        - If the function is no longer in use, it should be taken offline directly.
+        - Introduce security components
+        - Code level fix: Try not to splice SQL statements. If necessary, strict filtering of user-controllable parameters is required
 
-        ## 举例
+        ## Example
+
         ```php
         <?php
             $username = $_POST['username'];
@@ -41,15 +42,15 @@
             mysql_query($query);
         ?>
         ```
-        若输入的数据为
+        If the input data is
         ```php
         $_POST['username'] = 'adan';
         $_POST['password'] = '' OR ''='';
         ```
 
-        SQL语句变为 `SELECT * FROM users WHERE user='adan' AND password='' OR ''=''` 发生SQL注入，攻击者无需密码即可登录。
-        尽量不要使用拼接的SQL语句。若不得不使用，尽量不要用户可控SQL语句的参数。
-        若必须用户可控，请对用户输入的参数进行严格的限制和过滤。
+        The SQL statement becomes `SELECT * FROM users WHERE user='adan' AND password='' OR ''=''` SQL injection occurs and the attacker can log in without a password.
+        Try not to use spliced SQL statements. If you have to use it, try not to control the parameters of the SQL statement by the user.
+        If you have to use user-controlled SQL statements, strictly restrict and filter the parameters entered by the user.
     </solution>
     <status value="off"/>
     <author name="Feei" email="feei@feei.cn"/>

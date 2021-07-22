@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="打印堆栈信息"/>
+    <name value="Print stack information"/>
     <language value="java"/>
     <match mode="regex-only-match"><![CDATA[printStackTrace\s*\(]]></match>
     <level value="2"/>
     <solution>
-        ## 安全风险
-        堆栈信息不要直接暴露给客户端
+        ## Security risks
+        Stack information should not be exposed directly to the client
 
-        ## 修复方案
-        可将错误信息打印在logger内
+        ## Fix solution
+        Error messages can be printed in the logger
     </solution>
     <test>
         <case assert="true"><![CDATA[e.printStackTrace();]]></case>

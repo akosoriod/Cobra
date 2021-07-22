@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="不安全的权限设置"/>
+    <name value="Insecure permission settings"/>
     <language value="php"/>
     <match mode="regex-only-match"><![CDATA[(mkdir|chmod)\s*\(\s*(.*?)\s*,\s*0777\s*\)]]></match>
     <level value="2"/>
@@ -9,12 +9,12 @@
         <case assert="true"><![CDATA[chmod('file' ,0777)]]></case>
     </test>
     <solution>
-        ## 安全风险
-        不安全的权限设置
-        权限为0777表示所有权限均开放，即属性为:drwxrwxrwx(用户可读可写可执行)。
+        ## Security risks
+        Insecure permission settings
+        Permission 0777 means all permissions are open, i.e. the attribute is :drwxrwxrwx (user can read, write and execute).
 
-        ## 修复方案
-        设置相应的权限，尽量减少权限为0777。
+        ## Fix solution
+        Set the appropriate permissions and minimize the permissions to 0777.
     </solution>
     <status value="on"/>
     <author name="H4rdy" email="with.h4rdy@gmail.com"/>

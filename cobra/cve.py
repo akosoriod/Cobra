@@ -456,17 +456,17 @@ def parse_match(cve_path, cve_id, cve_level, module_, target_directory):
         mr.file_path = 'unkown'
     mr.language = '*'
     mr.id = cvi
-    mr.rule_name = '引用了存在漏洞的三方组件'
+    mr.rule_name = 'Referenced a vulnerable three-party component'
     mr.level = cve_level
     mr.line_number = 1
-    mr.analysis = 'Dependencies Matched(依赖匹配)'
+    mr.analysis = 'Dependencies Matched'
     mr.code_content = module_name + ':' + module_version
     mr.solution = """
-        三方依赖**""" + module_name + """:""" + module_version + """**存在CVE漏洞，CVE漏洞编号为: **""" + cve_id + """**
-        ## 安全风险
+        Three-party dependency**""" + module_name + """:""" + module_version + """"**CVE vulnerability exists, CVE vulnerability number: **""" + cve_id + """"**
+        ## Security risk
         
-        ## 安全修复
-        请根据对应厂商公告，及时更新三方依赖至安全版本
+        ## Security Fix
+        Please update the three-party dependency to the security version according to the corresponding vendor announcement in a timely manner
     """
 
     logger.debug('[CVE {i}] {r}:Find {n}:{v} have vul {c} and level is {l}'.format(i=mr.id, r=mr.rule_name,

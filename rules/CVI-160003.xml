@@ -29,25 +29,25 @@
 
     </test>
     <solution>
-        ## 安全风险
+        ## Security risks
 
-        ### SQL注入形成原因
-        SQL语句用户可控，若未对参数进行足够的过滤直接执行SQL语句，则可能发生SQL注入
+        ### Causes of SQL injection formation
+        SQL statement is user controllable, if SQL statement is executed directly without sufficient filtering of parameters, SQL injection may occur
 
-        ### 风险
-        - 用户信息被篡改
-        - 攻击者偷取代码和用户数据
-        - 业务运营的所有数据被恶意获取
-        - 线上代码被非法篡改，并造成为恶意攻击者输送流量或其他利益的影响
+        ### Risks
+        - User information is tampered with
+        - Attacker steals code and user data
+        - All data of business operation is maliciously obtained
+        - Online code is illegally tampered with and causes the impact of sending traffic or other benefits for malicious attackers
 
-        ## 修复方案
-        - 已不再使用的功能，可直接做下线处理
-        - 引入安全组件
-        - 代码层修复:对用户可控参数进行严格过滤
-            使用 `mysql_real_escape_string`转义 SQL 语句中使用的字符串中的特殊字符
-            若无转义函数并且使用 \ 来转义特殊字符，可以使用addslashes函数
+        ## Fix Solution
+        - The functions that are no longer used can be taken offline directly
+        - Introduce security components
+        - Code level fix: strict filtering of user-controllable parameters
+            Use `mysql_real_escape_string` to escape special characters in strings used in SQL statements
+            If there is no escape function and you use \ to escape special characters, you can use the adslashes function
 
-        ## 代码示例
+        ## Code examples
         ```
         <?php
             $username = $_POST['username'];

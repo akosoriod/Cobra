@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cobra document="https://github.com/WhaleShark-Team/cobra">
-    <name value="file_get_contents导致的SSRF"/>
+    <name value="file_get_contents caused by SSRF"/>
     <language value="php"/>
     <match mode="function-param-controllable"><![CDATA[file_get_contents]]></match>
     <level value="7"/>
@@ -15,29 +15,29 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        SSRF漏洞(Server-Side Request Forgery)
+ ## Security Risks
+        SSRF vulnerability (Server-Side Request Forgery)
 
-        ### 形成原理
-        SSRF形成的原因大都是由于服务端提供了从其他服务器应用获取数据的功能且没有对目标地址做过滤与限制。
+        ### Formation principle
+        SSRF is mostly formed because the server side provides the ability to obtain data from other server applications and does not filter and restrict the target address.
 
-        ### 风险
-        1、攻击者可以对外网、服务器所在内网、本地进行端口扫描，获取服务的banner信息。
-        2、攻击运行在内网或本地的应用程序。
-        3、对内网web应用进行指纹识别。
-        4、攻击内外网的web应用。
-        5、利用file协议读取本地文件等。
+        ### Risk
+        1, the attacker can extranet, the server intranet, local port scanning, to obtain the service banner information.
+        2, attacking applications running on the intranet or local.
+        3、Fingerprinting of intranet web applications.
+        4、Attack the intranet and outtranet web applications.
+        5、Use file protocol to read local files, etc.
 
-        ## 修复方案
-        1. 限制协议为HTTP、HTTPS
-        2. 限制请求域名白名单
-        3. 禁止30x跳转
+        ## Fix solution
+        1. restrict the protocol to HTTP, HTTPS
+        2. restrict the request domain whitelist
+        3. prohibit 30x jumping
 
-        ## 举例
+        ## Example
 
         ```php
         $url = $_GET['url'];;
-        echo file_get_contents($url); //对用户可控的参数没有进行过滤，攻击者恶意构造输入就可能导致SSRF
+        echo file_get_contents($url); // No filtering of user-controllable parameters, and malicious construction of input by attackers could lead to SSRF
         ```
     </solution>
     <status value="on"/>

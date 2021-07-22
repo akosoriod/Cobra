@@ -6,11 +6,11 @@
     <match mode="regex-only-match"><![CDATA[include[^>]*request\.]]></match>
     <level value="5"/>
     <solution>
-        ## 安全风险
-        载入的文件可控存在LFI漏洞
+        ## Security risks
+        Loaded files can be controlled to have LFI vulnerabilities
 
-        ## 修复方案
-        限制白名单
+        ## Fix options
+        Restricted whitelist
     </solution>
     <test>
         <case assert="true"><![CDATA[include(request.getParam('test'));]]></case>

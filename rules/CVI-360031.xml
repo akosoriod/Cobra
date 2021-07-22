@@ -23,14 +23,14 @@
         ]]></case>
     </test>
     <solution>
-        ## 安全风险
-        代码中存在webshell
+        ## Security risks
+        Presence of webshell in the code
 
-        特征 `gzuncompress\(base64_decode` 对应webshell样例
+        Feature `gzuncompress\(base64_decode` for webshell example
         [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/php/BNKQbAKQ.txt)
 
-        ## 修复方案
-        删除
+        ## Fix solution
+        Delete
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>

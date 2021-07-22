@@ -11,17 +11,17 @@
         <case assert="true"><![CDATA[$result = python_eval("import os\nos.system('$cmd')");]]></case>
     </test>
     <solution>
-        ## 安全风险
-        代码中存在webshell
+        ## Security risks
+        Presence of webshell in the code
 
-        特征 `$bind_pl="IyEvdXNyL2Jpbi9lbnYgcGV` 对应webshell样例
-        [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/web-malware-collection-13-06-2012/PHP/knullsh.txt)
+        Feature `$bind_pl="IyEvdXNyL2Jpbi9lbnYgcGV` Corresponding webshell sample
+        [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/web-malware-collection-13-06-2012/PHP/ knullsh.txt)
 
-        特征 `python_eval("import os\nos.system(` 对应webshell样例
-        [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/web-malware-collection-13-06-2012/PHP/bdotw44shell.txt)
+        feature `python_eval("import os\nos.system(` for webshell example)
+        [link](https://github.com/tennc/webshell/blob/4ca96011884b892ec15de130f76eb2a047b77493/web-malware-collection-13-06-2012/PHP/ bdotw44shell.txt)
 
-        ## 修复方案
-        删除
+        ## Fix solution
+        Delete
     </solution>
     <status value="on"/>
     <author name="Feei" email="feei@feei.cn"/>
